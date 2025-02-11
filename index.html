@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IdleHide - Work on Your Own Terms</title>
+
     <style>
         * {
             margin: 0;
@@ -50,7 +51,7 @@
     	}
 
 	.logo-text {
-    		font-size: 1.5rem;
+    		font-size: 2.5rem;
     		font-weight: bold;
 	}
 
@@ -281,16 +282,17 @@
         <nav class="nav">
 
 		<div class="logo-container">
-    			<img src="logo/IdleHide_logo_transparent.png" alt="IdleHide Logo" class="logo-image">
+    			<img src="logo.ico" alt="IdleHide Logo" class="logo-image">
     			<div class="logo-text">IdleHide</div>
 		</div>
 
 
 
             <div class="nav-links">
+		<a href="index.html">Home</a>
                 <a href="#features">Features</a>
                 <a href="#benefits">Benefits</a>
-                <a href="#download" class="button">Download</a>
+                <a href="download.html" class="button">Download</a>
             </div>
         </nav>
     </header>
@@ -299,7 +301,7 @@
         <div class="hero-content">
             <h1>Work on Your Terms</h1>
             <p>Take control of your work-life balance with intelligent activity management.</p>
-            <a href="#download" class="button">Try IdleHide Free</a>
+            <a href="download.html" class="button">Try IdleHide Free</a>
         </div>
     </section>
 
@@ -345,7 +347,7 @@
         <div class="benefit-grid">
             <div class="feature-card">
                 <h3>Work-Life Freedom</h3>
-                <p>Take breaks when needed, attend to personal matters, or enjoy a proper lunch without constant monitoring.
+                <p>Take breaks when needed, attend to personal matters, or enjoy a proper lunch without worrying about constant monitoring.
 			IdleHide gives you the flexibility to manage your time effectively.</p>
             </div>
             <div class="feature-card">
@@ -368,7 +370,7 @@
             <div>
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#download">Download</a></li>
+                    <li><a href="download.html">Download</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#support">Support</a></li>
                 </ul>
@@ -376,11 +378,25 @@
             <div>
                 <h3>Legal</h3>
                 <ul>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
                 </ul>
             </div>
         </div>
-    </footer>
+    </footer> 
+
+
+    <div id="cookie-consent-root"></div>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="cookieConsent.js"></script>
+
+<script>
+    ReactDOM.render(
+        React.createElement(CookieConsentBanner),
+        document.getElementById('cookie-consent-root')
+    );
+</script>
 </html>

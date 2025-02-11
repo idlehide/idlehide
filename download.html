@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download IdleHide - Work on Your Own Terms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 0.75rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .button.disabled {
+            background: #9CA3AF;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+	    max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #6B7280;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .license-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .license-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .license-card.featured {
+            border: 2px solid #3B82F6;
+        }
+
+        .license-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #2563EB;
+            margin: 1rem 0;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: #2563EB;
+            position: absolute;
+            left: 0;
+        }
+
+        .download-buttons {
+            max-width: 800px;
+            margin: 4rem auto;
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .download-buttons h3 {
+            margin-bottom: 2rem;
+            color: #1F2937;
+        }
+
+        .button-container {
+	    display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .terms-checkbox {
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .terms-checkbox input {
+            width: 20px;
+            height: 20px;
+        }
+
+        .terms-link {
+            color: #3B82F6;
+            text-decoration: none;
+        }
+
+        .terms-link:hover {
+            text-decoration: underline;
+        }
+
+        .system-requirements {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <img src="logo.ico" alt="IdleHide Logo" class="logo-image">
+                <div class="logo-text">IdleHide</div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#benefits">Benefits</a>
+                <a href="#download-options" class="button">Download</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="download-section" id="download-options">
+        <div class="section-title">
+            <h2>Choose Your License</h2>
+            <p>Select the perfect plan for your needs</p>
+        </div>
+
+        <div class="license-grid">
+            <div class="license-card">
+                <h2>Free Trial</h2>
+                <div class="price">$0</div>
+                <ul class="features-list">
+                    <li>30-minute sessions</li>
+                    <li>Unlimited restarts</li>
+                    <li>Full feature access</li>
+                    <li>No credit card required</li>
+                </ul>
+                <a href="#download-buttons" class="button">Download Now</a>
+            </div>
+
+            <div class="license-card featured">
+                <h2>Lifetime License</h2>
+                <div class="price">$5.99</div>
+                <ul class="features-list">
+                    <li>Unlimited usage</li>
+                    <li>One machine license</li>
+                    <li>Free updates</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#download-buttons" class="button">Purchase & Download</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="download-buttons" id="download-buttons">
+        <h3>Download Options</h3>
+        <div class="terms-checkbox">
+            <input type="checkbox" id="terms-agreement" onchange="toggleButtons()">
+            <label for="terms-agreement">I agree to the <a href="terms.html" class="terms-link">Terms and Conditions</a></label>
+        </div>
+        <div class="button-container">
+            <a href="https://github.com/yourusername/IdleHide/releases/download/v1.0.2/IdleHide.V1.0.2.zip" id="free-download" class="button disabled">Free Download for Win 10/11</a>
+            <a href="purchase.html" id="purchase-button" class="button disabled">Purchase License</a>
+        </div>
+    </section>
+
+    <script>
+        function toggleButtons() {
+            const isChecked = document.getElementById('terms-agreement').checked;
+            const freeDownload = document.getElementById('free-download');
+            const purchaseButton = document.getElementById('purchase-button');
+            
+            if (isChecked) {
+                freeDownload.classList.remove('disabled');
+                purchaseButton.classList.remove('disabled');
+            } else {
+                freeDownload.classList.add('disabled');
+                purchaseButton.classList.add('disabled');
+            }
+        }
+    </script>
+</body>
+</html>
