@@ -102,16 +102,11 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
-	/* Mobile Styles */
-@media (max-width: 768px) {
-    .header {
-        padding: 0.5rem;
-    }
-
+	@media screen and (max-width: 428px) {
     .nav {
-        flex-direction: row; /* Keep horizontal layout */
+        flex-direction: row;
         padding: 0.25rem;
-        flex-wrap: wrap; /* Allow wrapping if needed */
+        flex-wrap: wrap;
     }
 
     .logo-container {
@@ -119,31 +114,31 @@
     }
 
     .logo-text {
-        font-size: 1.75rem; /* Smaller text on mobile */
+        font-size: 1.75rem;
     }
 
     .logo-image {
-        width: 32px; /* Slightly smaller logo */
+        width: 32px;
         height: 32px;
     }
 
     .nav-links {
         display: flex;
-        flex-direction: row; /* Keep horizontal */
+        flex-direction: row;
         gap: 1rem;
-        flex-wrap: wrap; /* Allow wrapping */
+        flex-wrap: wrap;
         justify-content: center;
-        width: 100%; /* Full width for second row */
+        width: 100%;
         margin-top: 0.5rem;
     }
 
     .nav-links a {
-        font-size: 0.9rem; /* Slightly smaller text */
-        margin: 0; /* Remove margin since we're using gap */
+        font-size: 0.9rem;
+        margin: 0;
     }
 
     .button {
-        padding: 0.5rem 1rem; /* Smaller padding for the button */
+        padding: 0.5rem 1rem;
     }
 }
 
