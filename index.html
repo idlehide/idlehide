@@ -64,15 +64,6 @@
     		font-weight: bold;
 	}
 
-         .nav-links a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
 	    /* Mobile styles */
 @media screen and (max-width: 428px) {
     .header {
@@ -121,6 +112,14 @@
     }
 }
 
+	.nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+	
         .nav-links a:not(.button):after {
             content: '';
             position: absolute;
@@ -138,7 +137,7 @@
 
         .button {
             background: linear-gradient(135deg, #3B82F6, #2563EB);
-            color: white;
+            color: white !important;
             padding: 0.75rem 1.5rem;
             border-radius: 25px;
             text-decoration: none;
