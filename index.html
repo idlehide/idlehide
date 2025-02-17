@@ -102,6 +102,51 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
+	/* Mobile Styles */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.5rem;
+    }
+
+    .nav {
+        flex-direction: row; /* Keep horizontal layout */
+        padding: 0.25rem;
+        flex-wrap: wrap; /* Allow wrapping if needed */
+    }
+
+    .logo-container {
+        gap: 0.5rem;
+    }
+
+    .logo-text {
+        font-size: 1.75rem; /* Smaller text on mobile */
+    }
+
+    .logo-image {
+        width: 32px; /* Slightly smaller logo */
+        height: 32px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row; /* Keep horizontal */
+        gap: 1rem;
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: center;
+        width: 100%; /* Full width for second row */
+        margin-top: 0.5rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Slightly smaller text */
+        margin: 0; /* Remove margin since we're using gap */
+    }
+
+    .button {
+        padding: 0.5rem 1rem; /* Smaller padding for the button */
+    }
+}
+
         /* Enhanced Hero Section */
         .hero {
             background: linear-gradient(135deg, #3B82F6 0%, #0c2d75 100%);
