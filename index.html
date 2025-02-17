@@ -102,41 +102,49 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
-	@media screen and (max-width: 428px) {
-    .nav {
-        flex-direction: row;
-        padding: 0.25rem;
-        flex-wrap: wrap;
+	/* Mobile styles */
+@media screen and (max-width: 428px) {
+    .header {
+        padding: 0.5rem;
     }
-
+    
+    .nav {
+        display: flex !important; /* Force override */
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between;
+        padding: 0.25rem;
+    }
+    
     .logo-container {
         gap: 0.5rem;
+        flex-shrink: 0;
     }
-
+    
     .logo-text {
         font-size: 1.75rem;
     }
-
+    
     .logo-image {
         width: 32px;
         height: 32px;
     }
-
+    
     .nav-links {
-        display: flex;
-        flex-direction: row;
+        display: flex !important;
+        flex-direction: row !important; /* Force horizontal layout */
+        flex-wrap: wrap !important;
+        justify-content: flex-end;
         gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        margin-top: 0.5rem;
+        margin-left: auto;
     }
-
+    
     .nav-links a {
         font-size: 0.9rem;
         margin: 0;
+        white-space: nowrap;
     }
-
+    
     .button {
         padding: 0.5rem 1rem;
     }
