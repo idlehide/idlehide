@@ -322,32 +322,49 @@
         </div>
     </section>
 
-    <section class="download-buttons" id="download-buttons">
-        <h3>Download Options</h3>
-        <div class="terms-checkbox">
-            <input type="checkbox" id="terms-agreement" onchange="toggleButtons()">
-            <label for="terms-agreement">I agree to the <a href="terms.html" class="terms-link">Terms and Conditions</a></label>
-        </div>
-        <div class="button-container">
-            <a href="https://github.com/idlehide/idlehide/blob/main/IdleHide.zip?raw=true" id="free-download" class="button disabled">Free Download for Win 10/11</a>
-            <a href="purchase.html" id="purchase-button" class="button disabled">Purchase License</a>
-        </div>
-    </section>
+<section class="download-buttons" id="download-buttons">
+    <h3>Download Options</h3>
+    <div class="terms-checkbox">
+        <input type="checkbox" id="terms-agreement" onchange="toggleButtons()">
+        <label for="terms-agreement">I agree to the <a href="terms.html" class="terms-link">Terms and Conditions</a></label>
+    </div>
+    <div class="button-container">
+        <a href="#" onclick="trackDownload(event)" id="free-download" class="button disabled">Free Download for Win 10/11</a>
+        <a href="purchase.html" id="purchase-button" class="button disabled">Purchase License</a>
+    </div>
+</section>
 
-    <script>
-        function toggleButtons() {
-            const isChecked = document.getElementById('terms-agreement').checked;
-            const freeDownload = document.getElementById('free-download');
-            const purchaseButton = document.getElementById('purchase-button');
-            
-            if (isChecked) {
-                freeDownload.classList.remove('disabled');
-                purchaseButton.classList.remove('disabled');
-            } else {
-                freeDownload.classList.add('disabled');
-                purchaseButton.classList.add('disabled');
-            }
-        }
-    </script>
+<script>
+function trackDownload(event) {
+    event.preventDefault();
+
+    if (!document.getElementById('free-download').classList.contains('disabled')) {
+        gtag('event', 'file_download', {
+            'event_category': 'Downloads',
+            'event_label': 'IdleHide_Free',
+            'file_name': 'IdleHide.zip',
+            'file_extension': 'zip'
+        });
+        
+        setTimeout(function() {
+            window.location.href = 'https://github.com/idlehide/idlehide/blob/main/IdleHide.zip?raw=true';
+        }, 100);
+    }
+}
+
+function toggleButtons() {
+    const checkbox = document.getElementById('terms-agreement');
+    const freeDownload = document.getElementById('free-download');
+    const purchaseButton = document.getElementById('purchase-button');
+    
+    if (checkbox.checked) {
+        freeDownload.classList.remove('disabled');
+        purchaseButton.classList.remove('disabled');
+    } else {
+        freeDownload.classList.add('disabled');
+        purchaseButton.classList.add('disabled');
+    }
+}
+</script>
 </body>
 </html>
