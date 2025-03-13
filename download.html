@@ -12,7 +12,7 @@
 	</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download IdleHide - Work on Your Own Terms</title>
+    <title>Download IdleHide Beta - Work on Your Own Terms</title>
     <style>
         * {
             margin: 0;
@@ -145,7 +145,7 @@
 
         .download-section {
             background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-	    max-width: 1200px;
+	        max-width: 1200px;
             margin: 0 auto;
             padding: 8rem 2rem 4rem;
         }
@@ -168,41 +168,46 @@
             margin: 0 auto;
         }
 
-        .license-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .license-card {
+        .beta-card {
             background: white;
             border-radius: 1rem;
             padding: 2rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .license-card.featured {
-            border: 2px solid #3B82F6;
-        }
-
-        .license-card:hover {
+        .beta-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0,0,0,0.15);
         }
 
-        .price {
-            font-size: 2.5rem;
+        .beta-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .free-until {
+            font-size: 1.25rem;
             color: #2563EB;
             margin: 1rem 0;
+            font-weight: bold;
         }
 
         .features-list {
             list-style: none;
             margin: 2rem 0;
             text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .features-list li {
@@ -216,28 +221,6 @@
             color: #2563EB;
             position: absolute;
             left: 0;
-        }
-
-        .download-buttons {
-            max-width: 800px;
-            margin: 4rem auto;
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .download-buttons h3 {
-            margin-bottom: 2rem;
-            color: #1F2937;
-        }
-
-        .button-container {
-	    display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 2rem;
         }
 
         .terms-checkbox {
@@ -261,16 +244,6 @@
         .terms-link:hover {
             text-decoration: underline;
         }
-
-        .system-requirements {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
     </style>
 </head>
 <body>
@@ -284,88 +257,65 @@
                 <a href="/">Home</a>
                 <a href="/#features">Features</a>
                 <a href="/#benefits">Benefits</a>
-                <a href="/#download-options" class="button">Download</a>
+                <a href="/#download" class="button">Download</a>
             </div>
         </nav>
     </header>
 
-    <section class="download-section" id="download-options">
+    <section class="download-section" id="download">
         <div class="section-title">
-            <h2>Choose Your License</h2>
-            <p>Select the perfect plan for your needs</p>
+            <h2>Download IdleHide</h2>
+            <p>No setup, no installation – just download and run</p>
         </div>
 
-        <div class="license-grid">
-            <div class="license-card">
-                <h2>Free Trial</h2>
-                <div class="price">$0</div>
-                <ul class="features-list">
-                    <li>30-minute sessions</li>
-                    <li>Unlimited restarts</li>
-                    <li>Full feature access</li>
-                    <li>No credit card required</li>
-                </ul>
-                <a href="#download-buttons" class="button">Download Now</a>
+        <div class="beta-card">
+            <span class="beta-badge">BETA</span>
+            <h2>Free download for Windows 10/11</h2>
+            <div class="free-until">Available until October 1, 2025</div>
+            <ul class="features-list">
+                <li>Full access to all features</li>
+                <li>Free, unlimited usage during beta</li>
+                <li>Help shape the future of IdleHide</li>
+                <li>No credit card required</li>
+            </ul>
+            
+            <div class="terms-checkbox">
+                <input type="checkbox" id="terms-agreement" onchange="toggleButton()">
+                <label for="terms-agreement">I agree to the <a href="terms.html" class="terms-link">Terms and Conditions</a></label>
             </div>
-
-            <div class="license-card featured">
-                <h2>Lifetime License</h2>
-                <div class="price">$5.99</div>
-                <ul class="features-list">
-		    <li>One time payment</li>
-		    <li>No subscription required</li>
-                    <li>Unlimited usage</li>
-                    <li>Valid for one device</li>
-                    <li>Free updates</li>
-                </ul>
-                <a href="#download-buttons" class="button">Purchase & Download</a>
-            </div>
+            
+            <a href="#" onclick="trackDownload(event)" id="beta-download" class="button disabled">Download</a>
         </div>
     </section>
 
-<section class="download-buttons" id="download-buttons">
-    <h3>Download Options</h3>
-    <div class="terms-checkbox">
-        <input type="checkbox" id="terms-agreement" onchange="toggleButtons()">
-        <label for="terms-agreement">I agree to the <a href="terms.html" class="terms-link">Terms and Conditions</a></label>
-    </div>
-    <div class="button-container">
-        <a href="#" onclick="trackDownload(event)" id="free-download" class="button disabled">Free Download for Win 10/11</a>
-        <a href="purchase.html" id="purchase-button" class="button disabled">Purchase License</a>
-    </div>
-</section>
+    <script>
+    function trackDownload(event) {
+        event.preventDefault();
 
-<script>
-function trackDownload(event) {
-    event.preventDefault();
+        if (!document.getElementById('beta-download').classList.contains('disabled')) {
+            gtag('event', 'file_download', {
+                'event_category': 'Downloads',
+                'event_label': 'IdleHide_Beta',
+                'file_name': 'IdleHide v1.0.3 (Beta).exe',
+                'file_extension': 'exe'
+            });
+            
+            setTimeout(function() {
+                window.location.href = 'https://github.com/idlehide/idlehide/blob/main/IdleHide v1.0.3 (Beta).exe?raw=true';
+            }, 100);
+        }
+    }
 
-    if (!document.getElementById('free-download').classList.contains('disabled')) {
-        gtag('event', 'file_download', {
-            'event_category': 'Downloads',
-            'event_label': 'IdleHide_Free',
-            'file_name': 'IdleHide.exe',
-            'file_extension': 'exe'
-        });
+    function toggleButton() {
+        const checkbox = document.getElementById('terms-agreement');
+        const betaDownload = document.getElementById('beta-download');
         
-        setTimeout(function() {
-            window.location.href = 'https://github.com/idlehide/idlehide/blob/main/IdleHide.exe?raw=true';
-        }, 100);
+        if (checkbox.checked) {
+            betaDownload.classList.remove('disabled');
+        } else {
+            betaDownload.classList.add('disabled');
+        }
     }
-}
-
-function toggleButtons() {
-    const checkbox = document.getElementById('terms-agreement');
-    const freeDownload = document.getElementById('free-download');
-    const purchaseButton = document.getElementById('purchase-button');
-    
-    if (checkbox.checked) {
-        freeDownload.classList.remove('disabled');
-        purchaseButton.classList.remove('disabled');
-    } else {
-        freeDownload.classList.add('disabled');
-        purchaseButton.classList.add('disabled');
-    }
-}
-</script>
+    </script>
 </body>
 </html>
