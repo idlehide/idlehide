@@ -195,6 +195,58 @@
             margin-bottom: 2rem;
             opacity: 0.9;
         }
+        
+        /* New explanation section */
+        .explanation {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .explanation-image {
+            flex: 1;
+            max-width: 400px;
+        }
+        
+        .explanation-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+        
+        .explanation-content {
+            flex: 1;
+        }
+        
+        .explanation-content h2 {
+            font-size: 2.2rem;
+            color: #1F2937;
+            margin-bottom: 1.5rem;
+        }
+        
+        .explanation-content p {
+            font-size: 1.1rem;
+            color: #4B5563;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Mobile styles for explanation section */
+        @media screen and (max-width: 768px) {
+            .explanation {
+                flex-direction: column;
+                padding: 3rem 1.5rem;
+                gap: 2rem;
+            }
+            
+            .explanation-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
 
         .features {            
 	    max-width: 1200px;
@@ -341,9 +393,22 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Work on Your Terms</h1>
+            <h1>Work on Your Own Terms</h1>
             <p>Take control of your work-life balance with intelligent activity management.</p>
             <a href="/download" class="button">Try IdleHide Free</a>
+        </div>
+    </section>
+
+    <!-- New explanation section -->
+    <section class="explanation">
+        <div class="explanation-image">
+            <img src="program-screenshot.jpg" alt="IdleHide Program Screenshot">
+        </div>
+        <div class="explanation-content">
+            <h2>What is IdleHide?</h2>
+            <p>IdleHide is an advanced <strong>mouse jiggler</strong> and presence simulator that keeps your computer active and your online status available. Unlike basic mouse jigglers, IdleHide offers intelligent activity detection, natural mouse movements, and secure auto-lock features.</p>
+            <p>Whether you need to step away from your desk, attend to personal matters, or simply take a well-deserved break, IdleHide automatically keeps your PC logged in and active without interrupting your work or compromising your privacy.</p>
+            <a href="/download" class="button">Download Now</a>
         </div>
     </section>
 
@@ -412,9 +477,9 @@
             <div>
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="/download">Download</a></li>
-                    <li><a href="/#features">Features</a></li>
-                    <li><a href="mailto:idlehide.app@gmail.com">Support</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#support">Support</a></li>
                 </ul>
             </div>
             <div>
