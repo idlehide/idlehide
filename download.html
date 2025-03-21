@@ -285,7 +285,7 @@
                 <label for="terms-agreement">I agree to the <a href="terms.html" class="terms-link">Terms and Conditions</a></label>
             </div>
             
-            <a href="#" onclick="trackDownload(event)" id="download" class="button disabled">Download</a>
+            <a href="#" onclick="trackDownload(event)" id="download-button" class="button disabled">Download</a>
         </div>
     </section>
 
@@ -293,7 +293,7 @@
     function trackDownload(event) {
         event.preventDefault();
 
-        if (!document.getElementById('download').classList.contains('disabled')) {
+        if (!document.getElementById('download-button').classList.contains('disabled')) {
             gtag('event', 'file_download', {
                 'event_category': 'Downloads',
                 'event_label': 'IdleHide',
@@ -309,7 +309,7 @@
 
     function toggleButton() {
         const checkbox = document.getElementById('terms-agreement');
-        const Download = document.getElementById('download');
+        const Download = document.getElementById('download-button');
         
         if (checkbox.checked) {
             Download.classList.remove('disabled');
