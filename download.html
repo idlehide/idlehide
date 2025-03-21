@@ -12,7 +12,7 @@
 	</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download IdleHide Beta - Work on Your Own Terms</title>
+    <title>Download IdleHide - Work on Your Own Terms</title>
     <style>
         * {
             margin: 0;
@@ -168,7 +168,7 @@
             margin: 0 auto;
         }
 
-        .beta-card {
+        .license-card {
             background: white;
             border-radius: 1rem;
             padding: 2rem;
@@ -179,12 +179,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .beta-card:hover {
+        .license-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0,0,0,0.15);
         }
 
-        .beta-badge {
+        .license-badge {
             display: inline-block;
             background: linear-gradient(135deg, #3B82F6, #2563EB);
             color: white;
@@ -268,15 +268,16 @@
             <p>No setup, no installation – just download and run</p>
         </div>
 
-        <div class="beta-card">
-            <span class="beta-badge">BETA</span>
+        <div class="license-card">
+            <span class="license-badge">FREE</span>
             <h2>Free download for Windows 10/11</h2>
-            <div class="free-until">Available until October 1, 2025</div>
+            <div class="free-until">v1.0.3</div>
             <ul class="features-list">
-                <li>Full access to all features</li>
+               <!--<li>Full access to all features</li>
                 <li>Free, unlimited usage during beta</li>
                 <li>Help shape the future of IdleHide</li>
                 <li>No credit card required</li>
+		-->
             </ul>
             
             <div class="terms-checkbox">
@@ -284,7 +285,7 @@
                 <label for="terms-agreement">I agree to the <a href="terms.html" class="terms-link">Terms and Conditions</a></label>
             </div>
             
-            <a href="#" onclick="trackDownload(event)" id="beta-download" class="button disabled">Download</a>
+            <a href="#" onclick="trackDownload(event)" id="download" class="button disabled">Download</a>
         </div>
     </section>
 
@@ -292,10 +293,10 @@
     function trackDownload(event) {
         event.preventDefault();
 
-        if (!document.getElementById('beta-download').classList.contains('disabled')) {
+        if (!document.getElementById('download').classList.contains('disabled')) {
             gtag('event', 'file_download', {
                 'event_category': 'Downloads',
-                'event_label': 'IdleHide_Beta',
+                'event_label': 'IdleHide',
                 'file_name': 'IdleHide v1.0.3 (Beta).exe',
                 'file_extension': 'exe'
             });
@@ -308,12 +309,12 @@
 
     function toggleButton() {
         const checkbox = document.getElementById('terms-agreement');
-        const betaDownload = document.getElementById('beta-download');
+        const Download = document.getElementById('download');
         
         if (checkbox.checked) {
-            betaDownload.classList.remove('disabled');
+            Download.classList.remove('disabled');
         } else {
-            betaDownload.classList.add('disabled');
+            Download.classList.add('disabled');
         }
     }
     </script>
